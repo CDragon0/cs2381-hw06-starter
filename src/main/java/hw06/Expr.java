@@ -35,9 +35,13 @@ record Expr(String text) {
                 continue;
             }
 
-            // TODO:
-            // if (ch.equals(")")) {
-            //   ...
+            if (ch.equals(")")) {
+                var cc = stack.pop();
+                var nn = stack.pop();
+                var mm = stack.pop();
+
+                stack.push(applyOp(mm, nn, cc));
+            }
         }
 
         try {
